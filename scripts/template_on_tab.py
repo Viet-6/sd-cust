@@ -51,8 +51,6 @@ def save():
 
 def delete(id):
     return
-    if !id:
-        return
     # Build the credentials object
     credentials = service_account.Credentials.from_service_account_file(
         SERVICE_ACCOUNT_FILE, scopes=SCOPES1)
