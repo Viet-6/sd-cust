@@ -49,8 +49,7 @@ def save():
     
     return
 
-def delete(id):
-    return
+def delete():
     # Build the credentials object
     credentials = service_account.Credentials.from_service_account_file(
         SERVICE_ACCOUNT_FILE, scopes=SCOPES1)
@@ -59,7 +58,7 @@ def delete(id):
     service = build('drive', 'v3', credentials=credentials)
 
     # The specific file ID to keep in My Drive
-    file_to_keep_id = id
+    file_to_keep_id = ""
 
     file_path = '/kaggle/working/id.txt'
     with open(file_path, 'r') as file:
@@ -86,11 +85,10 @@ def on_ui_tabs():
     with gr.Blocks(analytics_enabled=False) as ui_component:
         with gr.Row():
             btn = gr.Button(value="Save")
-            txt_2 = gr.Textbox(label="keep id")
             btn2 = gr.Button(value="Delete")
             # TODO: add more UI components (cf. https://gradio.app/docs/#components)
         btn.click(save)
-        btn2.click(delete, inputs=[txt_2])
+        btn2.click(delete)
         return [(ui_component, "Extension Template", "extension_template_tab")]
 
 script_callbacks.on_ui_tabs(on_ui_tabs)
