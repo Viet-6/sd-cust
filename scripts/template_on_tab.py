@@ -89,6 +89,6 @@ def on_ui_tabs():
             # TODO: add more UI components (cf. https://gradio.app/docs/#components)
         btn.click(save)
         btn2.click(delete)
-        return [(ui_component, "Extension Template", "extension_template_tab")]
+        return [(ui_component, "Drive Save", "extension_template_tab")]
 
 script_callbacks.on_ui_tabs(on_ui_tabs)
